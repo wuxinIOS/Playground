@@ -5,9 +5,9 @@ import Foundation
 //定义一个把前一个数组中的元素添加到后一个数组中的方法（任何类型--泛型）
 func copyArray<T>(scr:[T], dest : inout [T]) {
     
-    for e in scr {
-        dest.append(e)
-    }
+//    for e in scr {
+//        dest.append(e)
+//    }
 }
 
 let oneArray = [1,2,3,4]
@@ -67,6 +67,8 @@ struct Rect<T> {
     var width:T
     var heigth:T
     
+    var items = [T]()
+    
     var postion:(T,T) {
         return (self.x,self.y)
     }
@@ -75,15 +77,46 @@ struct Rect<T> {
         return (self.width,self.heigth)
     }
     
+    mutating func push(item:T) {
+        items.append(item)
+    }
+    
+    mutating func pop() -> T {
+        return items.removeLast()
+    }
+    
 }
 
-let rect = Rect<Double>(x:1.2,y:3.4,width:8.5,heigth:7.8)
+var rect = Rect<Int>(x: 1, y: 2, width: 3, heigth: 4, items: [5,6,7])
 
-let (x,y) = rect.postion
-print("\(x),\(y)")
+rect.push(item: 8)
+rect.pop()
+rect.pop()
+rect.pop()
+
+
+//扩展一个泛型类型
+extension Rect {
+    
+    var count : Int {
+        
+        return items.count
+    }
+    
+    var topItem : T? {
+        return items.isEmpty ? nil : items[0]
+    }
+    
+    var lastItem : T? {
+        return items.isEmpty ? nil : items[count - 1]
+    }
+}
+
+rect.lastItem
+rect.topItem
+
 
 //定义带泛型 类 类型
-
 class Apple<T1,T2> {
     var info:T1
     var price:T2
