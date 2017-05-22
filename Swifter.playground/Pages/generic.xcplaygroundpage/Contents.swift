@@ -130,3 +130,23 @@ var a1 = Apple<String,Float>(info:"苹果",price:5500)
 
 print(a1.info,a1.price)
 
+
+//与where结合使用  约束泛型类型
+class MyClassTwo<T,C> where T:Integer,C:Integer {
+    var param1:T
+    var param2:C
+    init(param1:T,param2:C){
+
+        self.param1=param1
+        self.param2=param2
+
+
+    }
+}
+
+var obj3 = MyClassTwo(param1: 1, param2: 1)
+
+
+
+
+

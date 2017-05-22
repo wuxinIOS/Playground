@@ -13,7 +13,21 @@ func addTo(_ adder: Int) -> (Int) -> Int {
 }
 
 let addTwo = addTo(2)    // addToFour: Int -> Int
+print(addTwo)
 let result = addTwo(6)   // result = 8
+
+
+
+func lowThan(_ comparer:Int) -> (Int) ->Bool {
+    return {
+        value in
+        return value < comparer
+    }
+}
+
+let lowThan100 = lowThan(100)
+let low = lowThan100(11)
+print(low)
 
 func greaterThan(_ comparer: Int) -> (Int) -> Bool {
     return { $0 > comparer }
@@ -62,5 +76,18 @@ class Control {
     
     func performActionForControlEvent(controlEvent: ControlEvent) {
         actions[controlEvent]?.performAction()
+    }
+}
+
+
+class MyViewController {
+    let button = Control()
+    
+    func viewDidLoad() {
+        button.setTarget(target: self, action: MyViewController.onButtonTap, controlEvent: .TouchUpInside)
+    }
+    
+    func onButtonTap() {
+        print("Button was tapped")
     }
 }
