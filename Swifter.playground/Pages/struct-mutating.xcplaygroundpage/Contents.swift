@@ -12,7 +12,7 @@ struct User {
     }
 }
 */
-
+//   mutating 关键字作用:修饰在结构体或枚举中的方法,在方法中可以修改属性值
 struct User {
     var age : Int
     var weight : Int

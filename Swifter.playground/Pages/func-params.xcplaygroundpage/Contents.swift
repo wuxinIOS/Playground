@@ -42,3 +42,5 @@ var input = 10
 let incrementor = makeIncrementor(addNumber: 2)
 incrementor(&input)
 print(input)
+incrementor(&input)
+

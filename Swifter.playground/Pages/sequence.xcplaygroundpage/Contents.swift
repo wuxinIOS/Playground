@@ -52,13 +52,18 @@ for i in ReverseSequence(array: arr) {
 }
 
 
+
 var iterator = arr.makeIterator()
 while let obj = iterator.next() {
     print(obj)
 }
 
 let aaa = ReverseSequence(array: arr)
-aaa.map { (Int) -> Int in
+let a = aaa.map { (Int) -> Int in
     return 1
 }
+
+
+
+
 

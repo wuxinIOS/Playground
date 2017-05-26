@@ -81,5 +81,7 @@
         <page name='escaping'/>
         <page name='associatedtype'/>
         <page name='playground-liveview'/>
+        <page name='generic'/>
+        <page name='Initialization'/>
     </pages>
 </playground>

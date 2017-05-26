@@ -18,6 +18,7 @@ func +(left: Vector2D, right: Vector2D) -> Vector2D {
 let v4 = v1 + v2
 // v4 为 {x 3.0, y 7.0}
 
+//自定义操作符
 precedencegroup DotProductPrecedence {
     associativity: none
     higherThan: MultiplicationPrecedence

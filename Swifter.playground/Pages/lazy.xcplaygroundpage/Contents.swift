@@ -25,6 +25,7 @@ let result1 = data1.map {
     return i * 2
 }
 
+
 print("准备访问结果")
 for i in result1 {
     print("操作后结果为 \(i)")

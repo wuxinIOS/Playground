@@ -61,3 +61,32 @@ class Person: ExpressibleByStringLiteral {
 
 let p: Person = "xiaoMing"
 print(p.name)
+
+struct Person1: ExpressibleByArrayLiteral {
+    var name: String = ""
+    var job: String = ""
+    typealias Element = String
+    init(arrayLiteral elements: Person1.Element...) {
+        if elements.count == 2 {
+            name = elements[0]
+            job = elements[1]
+        }
+    }
+}
+
+struct student: ExpressibleByArrayLiteral {
+    var math: Float
+    typealias Element = Float
+    init(math:Float) {
+        self.math = math
+    }
+    
+    init(arrayLiteral elements: student.Element...) {
+    self.init(math:elements[0])
+    }
+}
+
+let xiaoming:student = [130]
+print(xiaoming.math)
+
+
